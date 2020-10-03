@@ -21,7 +21,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (win == true) {
+            CancelInvoke("Spawn");
+        }
     }
 
     void Spawn(){
@@ -32,5 +34,15 @@ public class GameManager : MonoBehaviour
 
         Instantiate(target, 
             randomPosition, Quaternion.identity);
+    }
+
+    public void IncrementScore(){
+        score++;
+        textScoreValue.text = score.ToString();
+        if (score >= 10) {
+            win = true;
+            winLabel.SetActive(win);
+        }
+
     }
 }
