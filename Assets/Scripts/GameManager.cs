@@ -24,6 +24,10 @@ public class GameManager : MonoBehaviour
         if (win == true) {
             CancelInvoke("Spawn");
         }
+        
+        if (Input.GetMouseButtonDown(0)) {
+            GetComponent<AudioSource>().Play();
+        }
     }
 
     void Spawn(){
